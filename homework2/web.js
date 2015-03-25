@@ -1,13 +1,7 @@
 /**
  * Created by Godning on 2015/3/25.
  */
-//WebSvr.js
-// 一个演示Web服务器
-//------------------------------------------------
-/**
- * Created by Godning on 2015/3/25.
- */
-//WebSvr.js
+//web.js
 // 一个演示Web服务器
 //------------------------------------------------
 var http=require("http");

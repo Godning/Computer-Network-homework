@@ -58,7 +58,7 @@ void* request_handler(void *arg)
     FILE* clnt_write;
 
     char method[10];
-    char ct[5];
+    char ct[15];
     char file_name[30];
 
     clnt_read=fdopen(clnt_sock,"r");
@@ -68,7 +68,7 @@ void* request_handler(void *arg)
         send_error(clnt_write);
         fclose(clnt_read);
         fclose(clnt_write);
-        return 0;
+        return NULL;
     }
 
     strcpy(method,strtok(req_line," /"));
@@ -78,9 +78,9 @@ void* request_handler(void *arg)
         send_error(clnt_write);
         fclose(clnt_read);
         fclose(clnt_write);
-        return 0;
+        return NULL;
     }
-
+    printf("%s\n",file_name);
     fclose(clnt_read);
     send_data(clnt_write,ct,file_name);
 }
@@ -115,7 +115,7 @@ void send_data(FILE *fp, char *ct, char *file_name)
     fclose(fp);
 }
 
-char* content_type(char *file)
+char* content_type(char* file)
 {
     char extension[SMALL_BUF];
     char file_name[SMALL_BUF];
